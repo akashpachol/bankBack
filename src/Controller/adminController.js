@@ -19,8 +19,8 @@ export const loginAdminController = asyncHandler(async (req, res) => {
       token: generateToken(user.id),
     });
   } else {
-    res.status(400);
-    throw new Error("Invalid Credentials");
+    res.status(400).json({ message: "Invalid Credentials" });
+
   }
 });
 
@@ -30,8 +30,8 @@ export const disableUser= asyncHandler(async (req, res) => {
   const user = await User.findById(id);
 
   if (!user) {
-    res.status(400);
-    throw new Error("Invalid Credentials");
+res.status(400).json({ message: "Invalid Credentials" });
+
   }
 
   if (!user.disabled) {
@@ -59,8 +59,8 @@ export const getUserById= asyncHandler(async (req, res) => {
   const user = await Account.findOne({ user: id }).populate('user');
 
   if (!user) {
-    res.status(400);
-    throw new Error("Invalid Credentials");
+    res.status(400).json({ message: "Invalid Credentials" });
+
   }
 
   res.json({ status: "success", message: "get  user details", data: user });

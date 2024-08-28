@@ -46,7 +46,7 @@ export const deposit = asyncHandler(async (req, res) => {
 
 export const withdraw = asyncHandler(async (req, res) => {
   const { amount } = req.body;
-console.log(amount,'jffjjfj');
+
 
   const transaction = await Account.findOne({ user: req.user_id });
 

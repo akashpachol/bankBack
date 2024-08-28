@@ -51,8 +51,8 @@ export const userRegisterController = asyncHandler(
           token: generateToken(user.id),
         });
       } else {
-        res.status(400);
-        throw new Error("Invalid Credentials");
+        res.status(400).json({ message: "Invalid Credentials" });
+
       }
     }
   );
