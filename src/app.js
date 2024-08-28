@@ -1,6 +1,5 @@
 
 import express from 'express';
-import sesssion  from "express-session"
 import http from "http";
 import cors from "cors"
 import  dbConnect from './config/dbConnect.js';
@@ -21,15 +20,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-const sessionSecret = process.env.SESSION_SECRET || "default_secret_key";
-app.use(sesssion({
-  secret: sessionSecret,
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 24 * 60 * 60 * 1000,
-  }
-}))
+
 
 dbConnect()
 const PORT = process.env.PORT || 3000

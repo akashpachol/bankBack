@@ -51,7 +51,7 @@ export const withdraw = asyncHandler(async (req, res) => {
   const transaction = await Account.findOne({ user: req.user_id });
 
   if (!transaction || transaction.accountBalance < amount) {
-    res.status(404).json({ message: "Insufficient balance" });
+    res.status(400).json({ message: "Insufficient balance" });
     return;
   } else {
     transaction.accountBalance -= amount;
