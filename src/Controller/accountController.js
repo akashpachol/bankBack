@@ -39,7 +39,7 @@ export const deposit = asyncHandler(async (req, res) => {
     await transaction.save();
   }
   res.json({
-    message: "ammount deposit success full",
+    message: "amount deposit success full",
     status: "success",
   });
 });
@@ -65,7 +65,7 @@ export const withdraw = asyncHandler(async (req, res) => {
     await transaction.save();
   }
   res.json({
-    message: "ammount withdraw  success full",
+    message: "amount withdraw  success full",
     status: "success",
   });
 });
